@@ -77,7 +77,7 @@ $sqlquery = "
 		INNER JOIN `cablegate_changes` ch
 		ON ch.`release_id` = re.`release_id`
 	ORDER BY `release_time` DESC
-	LIMIT 1	
+	LIMIT 1
 	";
 // printf('<p>%s</p>', $sqlquery);
 if ( ($sqlresult = mysql_query($sqlquery)) &&
@@ -144,7 +144,7 @@ $query .= sprintf("
 	$column_names_lookup_by_sort[$sort ^ 1]
 	);
 // printf("<p>%s</p>", $query);
-// EXPLAIN SELECT SQL_CALC_FOUND_ROWS c.`id`, c.`canonical_id`, c.`cable_time`, c.`change_time`, (c.`status` & 0x01) AS `removed`, (c.`status` & 0x02) AS `new_or_updated`, cl.`classification`, o.`origin`, c.`subject` FROM `cablegate_classifications` cl INNER JOIN (`cablegate_origins` o INNER JOIN (`cablegate_cables` c INNER JOIN (SELECT `cable_id` FROM (SELECT a.`cable_id` FROM (SELECT DISTINCT `cable_id` FROM `cablegate_termassoc` ta INNER JOIN `cablegate_terms` t ON t.id = ta.term_id WHERE t.`term` LIKE 'oil%') a INNER JOIN (SELECT DISTINCT `cable_id` FROM `cablegate_termassoc` ta INNER JOIN `cablegate_terms` t ON t.id = ta.term_id WHERE t.`term` LIKE 'bush%') b ON a.`cable_id` = b.`cable_id`) a) t ON t.cable_id = c.`id`) ON o.`id` = c.`origin_id`) ON cl.`id` = c.`classification_id` ORDER BY c.`change_time` DESC, c.`cable_time` DESC LIMIT 100 
+// EXPLAIN SELECT SQL_CALC_FOUND_ROWS c.`id`, c.`canonical_id`, c.`cable_time`, c.`change_time`, (c.`status` & 0x01) AS `removed`, (c.`status` & 0x02) AS `new_or_updated`, cl.`classification`, o.`origin`, c.`subject` FROM `cablegate_classifications` cl INNER JOIN (`cablegate_origins` o INNER JOIN (`cablegate_cables` c INNER JOIN (SELECT `cable_id` FROM (SELECT a.`cable_id` FROM (SELECT DISTINCT `cable_id` FROM `cablegate_termassoc` ta INNER JOIN `cablegate_terms` t ON t.id = ta.term_id WHERE t.`term` LIKE 'oil%') a INNER JOIN (SELECT DISTINCT `cable_id` FROM `cablegate_termassoc` ta INNER JOIN `cablegate_terms` t ON t.id = ta.term_id WHERE t.`term` LIKE 'bush%') b ON a.`cable_id` = b.`cable_id`) a) t ON t.cable_id = c.`id`) ON o.`id` = c.`origin_id`) ON cl.`id` = c.`classification_id` ORDER BY c.`change_time` DESC, c.`cable_time` DESC LIMIT 100
 $result = mysql_query($query);
 if (!$result) { exit(mysql_error()); }
 $num_cables = mysql_num_rows($result);

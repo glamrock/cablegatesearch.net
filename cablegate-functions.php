@@ -34,7 +34,7 @@ function raw_query_to_normalized_expressions($raw_query) {
 	$normalized_query = strtolower($normalized_query);
 
 	// get rid of all non-supported character
-	$normalized_query = preg_replace('/[^-="a-zA-Z0-9]+/',' ',$normalized_query);	
+	$normalized_query = preg_replace('/[^-="a-zA-Z0-9]+/',' ',$normalized_query);
 
 	// split into raw expressions
 	$raw_expressions = preg_split('/"([^"]*)"|\\s+/', $normalized_query, -1, PREG_SPLIT_DELIM_CAPTURE|PREG_SPLIT_NO_EMPTY);
@@ -588,7 +588,7 @@ function get_cable_entries($raw_query, $sort, $yt, $mt, $offset, $limit) {
 		",
 		$prepdata['subquery']
 		);
-	/* 
+	/*
 	 * When using release time, there is no way yet to specify a
 	 * maximum year-month, so no need to filter according to time
 	 * in such case

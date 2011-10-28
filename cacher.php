@@ -96,7 +96,7 @@ function db_close_compressed_cache() {
 	global $CACHE_DIR;
 	if ( !$CACHE_HANDLE ) return;
 	// http://www.ulf-wendel.de/php/show_source.php?file=out_cache_com
-	$len = ob_get_length();            
+	$len = ob_get_length();
 	$content = ob_get_clean();
 	// gzcompress() returns string as RFC1950: http://www.faqs.org/rfcs/rfc1950.html
 	//    [CMF] [FLG] [...data...](?) [ADLER32](4)
