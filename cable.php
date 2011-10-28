@@ -157,7 +157,7 @@ echo $cable_data['content'];
 <?php } ?>
 </div><!-- end main -->
 <script type="text/javascript">
-<!-- 
+<!--
 (function(){
 	$$('.toggleHeader').each(function(e){
 		e.addEvent('click',function(ev){
