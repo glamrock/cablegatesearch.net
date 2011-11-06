@@ -193,7 +193,7 @@ if ( $sqlresult = mysql_query($sqlquery) ) {
 		else {
 			$tags_translated = htmlentities($tags_translated_table[$sqlrow['tags']]);
 			}
-		
+
 		printf('<tr><td%s>%s<td>%s%s',
 			$anchor,
 			date('Y, M j',$sqlrow['cable_time']),
